@@ -2,8 +2,8 @@ import socket
 from pynput import keyboard as pynput_keyboard
 
 # Configura la dirección IP y el puerto del PC secundario
-SERVER_IP = '192.168.1.139'  # Reemplaza con la dirección IP del PC secundario
-SERVER_PORT = 55555  # Elige un puerto disponible
+SERVER_IP = ''  # Reemplaza con la dirección IP del PC secundario
+SERVER_PORT =   # Elige un puerto disponible
 
 ALLOWED_KEYS = {'e', '0', 't', '1', '5'}  # Lista de teclas permitidas
 
@@ -21,10 +21,10 @@ def simulate_key_press_release(key):
         print(f"Error al simular la pulsación de tecla: {e}")
 
 # Define las teclas que activarán los comandos
-encender_puesto = 'e'  # e
-disparar = '0'  # CLICK IZQUIERDO
-target = 't'  # t
-MM = '1'  #  # mode change and mining or savaging M -> CLICK DERECHO -> CLICK IZQUIERDO
+encender_puesto = 'e'  
+disparar = '0'  
+target = 't'  
+MM = '1' 
 center_turret = '5'
 
 def on_press(key):
@@ -47,7 +47,7 @@ def on_press(key):
 
         simulate_key_press_release(key_char)
 
-# Crea un listener para el teclado
+# Listener para el teclado
 keyboard_listener = pynput_keyboard.Listener(on_press=on_press)
 keyboard_listener.start()
 
