@@ -3,8 +3,8 @@ import pyautogui
 import time
 
 # Configura la dirección IP y el puerto
-HOST = '0.0.0.0'  # Escucha en todas las interfaces
-PORT = 55555  # El mismo puerto que especificaste en el script del PC principal
+HOST = ''  # interfaz
+PORT =   # El mismo puerto que especificaste en el script del PC principal
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
