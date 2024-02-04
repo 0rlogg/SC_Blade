@@ -3,7 +3,7 @@ from pynput import keyboard as pynput_keyboard
 
 # Configura la dirección IP y el puerto del PC secundario
 SERVER_IP = ''  # Reemplaza con la dirección IP del PC secundario
-SERVER_PORT =   # Elige un puerto disponible
+SERVER_PORT = ''  # Elige un puerto disponible
 
 ALLOWED_KEYS = {'e', '0', 't', '1', '5'}  # Lista de teclas permitidas
 
