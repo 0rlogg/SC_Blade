@@ -2,34 +2,7 @@ import socket
 import subprocess
 import sys
 import time
-import pyautogui
-
-# Verifica si pyautogui está instalado e intenta instalarlo si no lo está.
-try:
-    import subprocess
-except ImportError:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'subprocess'])
-    import subprocess
-try:
-    import sys
-except ImportError:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'sys'])
-    import sys
-try:
-    import pyautogui
-except ImportError:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pyautogui'])
-    import pyautogui
-try:
-    import time
-except ImportError:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'time'])
-    import time
-try:
-    import socket
-except ImportError:
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'socket'])
-    import socket   
+import pyautogui  
     
 
 # Configure the IP address and port
