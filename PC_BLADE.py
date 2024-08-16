@@ -5,7 +5,7 @@ import pyautogui
 
 # Configure the IP address and port
 HOSTNAME = socket.gethostname()
-HOST =  socket.gethostbyname(HOSTNAME)
+HOST =  input('type the ip of the pc-server')
 PORT = 61000
 
 print (HOSTNAME)
