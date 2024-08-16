@@ -43,5 +43,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_info:
                 if command == 'disparar':
                     pyautogui.click(button='left')
 
-        except Exception as e:
-            print(f"Error de conexión: {e}")
+        except Exception as error:
+            print(f"Error de conexión: {error}")
