@@ -12,40 +12,25 @@ def send_command(command):
         socket_INFO.connect((SERVER_IP, SERVER_PORT))
         socket_INFO.sendall(command.encode('utf-8'))
 
-def simulate_key_press_release(key):
-    try:
-        with pynput_keyboard.Controller() as controller:
-            controller.press(key)
-            controller.release(key)
-    except Exception as error:
-        print(f"Error al simular la pulsación de tecla: {error}")
-
-# Define las teclas que activarán los comandos
-encender_puesto = 'shift' + 'e' 
-disparar = '0'  
-target = 't'  
-MM = '1' 
-center_turret = '5'
+# Variables de estado para detectar Shift + e
+shift_pressed = False
 
 def on_press(key):
+    global shift_pressed
+
     try:
-        key_char = key.char
-    except AttributeError:
-        key_char = str(key)
-
-    if key_char in ALLOWED_KEYS:
-        if key_char == encender_puesto:
+        if key == pynput_keyboard.Key.shift:
+            shift_pressed = True
+        elif key.char == 'e' and shift_pressed:
             send_command('encendido')
-        elif key_char == disparar:
-            send_command('disparar')
-        elif key_char == target:
-            send_command('target')
-        elif key_char == MM:
-            send_command('MM')
-        elif key_char == center_turret:
-            send_command('center_turret')
+    except AttributeError:
+        pass
 
-        simulate_key_press_release(key_char)
+def on_release(key):
+    global shift_pressed
+
+    if key == pynput_keyboard.Key.shift:
+        shift_pressed = False
 
 # Listener para el teclado
 keyboard_listener = pynput_keyboard.Listener(on_press=on_press)
