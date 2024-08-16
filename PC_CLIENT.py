@@ -2,23 +2,23 @@ import socket
 from pynput import keyboard as pynput_keyboard
 
 # Configura la dirección IP y el puerto del PC secundario
-SERVER_IP = ''  # Reemplaza con la dirección IP del PC secundario
-SERVER_PORT = ''  # Elige un puerto disponible
+SERVER_IP = '172.0.0.1'  # Reemplaza con la dirección IP del PC secundario
+SERVER_PORT = 61000  # Elige un puerto disponible
 
 ALLOWED_KEYS = {'e', '0', 't', '1', '5'}  # Lista de teclas permitidas
 
 def send_command(command):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((SERVER_IP, SERVER_PORT))
-        s.sendall(command.encode('utf-8'))
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_INFO:
+        socket_INFO.connect((SERVER_IP, SERVER_PORT))
+        socket_INFO.sendall(command.encode('utf-8'))
 
 def simulate_key_press_release(key):
     try:
         with pynput_keyboard.Controller() as controller:
             controller.press(key)
             controller.release(key)
-    except Exception as e:
-        print(f"Error al simular la pulsación de tecla: {e}")
+    except Exception as error:
+        print(f"Error al simular la pulsación de tecla: {error}")
 
 # Define las teclas que activarán los comandos
 encender_puesto = 'e'  
